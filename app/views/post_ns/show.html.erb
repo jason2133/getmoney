@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Date:</strong>
+  <%= @post_n.date %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post_n.title %>
+</p>
+
+<div class="container-fluid d-flex justify-content-center">
+<table >
+<thead>
+  <tr>
+    <th>총액</th>
+    <th>인원</th> 
+    <th>인당</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+   <td><%= @post_n.total_price %></td>
+   <td><%= @post_n.member %></td>
+   <td>
+    <% if @post_n.total_price.to_i != 0 %>
+    <%= @post_n.total_price.to_i / @post_n.member.to_i  %>
+    <% else %>
+    <%= puts "Error" %>
+    <%end%>
+   </td>
+ </tbody>
+ </table>
+ </div>  
+
+<br>
+<p>
+  <strong>Etc:</strong>
+  <%= @post_n.etc %>
+</p>
+
+
+<a href="/post_ns/<%= @post_n.id%>/check_n">명단확인</a>
+
+
+<%= link_to 'Edit', edit_post_n_path(@post_n) %> |
+<%= link_to 'Back', post_ns_path %>

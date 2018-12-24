@@ -1,0 +1,40 @@
+
+<br>
+<br>
+<div class="container text-white ">
+<h1>Board</h1>
+
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>제목</th>
+      <th>작성자</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @freeposts.each do |freepost| %>
+      <tr>
+        <td><%= freepost.id %></td>
+        <td><%= link_to freepost.title, freepost %></td>
+        <td><%= freepost.username %></td>
+        
+       </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '새로운 글 쓰기', new_freepost_path %>
+<br><br>
+<%= form_tag(freeposts_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "검색" %>
+<% end %> 
+
+
+</div>

@@ -1,0 +1,123 @@
+
+<div class="container">
+<div class="text-right">
+<% if current_user == @post.user%>
+  <td><%= link_to '수정하기/', edit_post_path(@post) %></td>
+  <td><%= link_to '삭제하기/', @post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% else%>
+  <td></td>
+<%end%>
+<%= link_to '뒤로 가기', posts_path %>
+</div>
+<br>
+<div class="text-center">
+  <span class="h4"><%= @post.date %> </span>  
+ &nbsp  &nbsp
+  <span class="h2"><%= @post.title %></span>
+ &nbsp  &nbsp
+  <span class="h5"> <%= @post.etc %> </span> 
+</div>
+
+<br>
+<br>
+<div id ="hidden">
+<%=form_for Table.new, url:post_table_index_path(post_id: @post.id) do |f|%>
+  <%=f.label "항목", class: "border-0"%>
+  <%=f.text_field :item %>
+  
+  <%=f.label "수량"%>
+  <%=f.number_field :EA %>
+
+  <%=f.label "가격"%>  
+  <%=f.number_field :price %>
+  
+  <%=f.label "비고"%>
+  <%=f.text_field :etc %>  
+
+  <%=f.submit '제출'%>
+<% end %>
+</div>
+
+<br>
+
+<table class="table">
+<thead>
+  <tr>
+    <th>항목</th>
+    <th>수량</th>
+    <th>가격</th>
+    <th>총액</th>
+    <th>비고</th>
+    <th>삭제</th>
+  </tr>
+</thead>
+
+  <% a = 0%>
+  <%@post.tables.each do |table|%>
+  
+
+    <tr>
+    
+      <td><%=table.item%></td>
+      <td><%=table.EA%></td>
+      <td><%=table.price%></td>
+      <% table.total = table.EA*table.price  %>
+      <td><%=table.total%></td>
+      <% a = a + table.total%>
+      <td><%=table.etc%></td>
+      <td>
+        <%= link_to '삭제', post_table_path(@post.id,table.id), method: 'delete'%>
+      </td>
+    </tr>
+ <%end%>
+</table>
+
+<br>
+<div class=result>
+<table class="table ">
+  <% @post.total_price = a %>
+  <thead>
+  <tr>
+    <th>인원수</th>
+    
+     <th>총 사용비용</th>
+    
+     <th>인당</th>
+   
+  </tr>
+  </thead>
+ 
+  <tr>
+  <th><%=@post.member%></th>
+  <th><%=@post.tables.sum("total")%></th>
+    <th>
+  <% if @post.member.to_i != 0 %>
+    <%=@post.tables.sum("total").to_i / @post.member.to_i  %>
+    <% else %>
+    <%= puts "Error" %>
+    <%end%>
+    </th>
+
+  
+  </tr>
+
+</table>
+
+</div>
+<br>
+
+ 
+
+
+<button class="btn bgradius2 border-white bg-transparent text-white"><a href="/posts/<%= @post.id%>/check">명단확인</a></button>
+&nbsp
+<input type="button"  class="btn bgradius2 border-white bg-transparent text-white" value="Done" onclick="document.getElementById('hidden').style.visibility='hidden'"> 
+&nbsp
+<input type="button"  class="btn bgradius2 border-white bg-transparent text-white" value="Re" onclick="document.getElementById('hidden').style.visibility='visible'" > 
+<br>
+<br>
+
+
+</div>
+<br>
+

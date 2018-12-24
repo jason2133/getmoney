@@ -1,0 +1,210 @@
+@import url('http://fonts.googleapis.com/earlyaccess/notosanskr.css');
+@import "bootstrap";
+
+//sy
+table{
+    color:white;
+    text-align: center;
+}
+
+.ff{
+    background-color: white !important;
+    opacity: 0.5 ;
+    color: black !important;
+    font-weight:bold ;
+    }
+
+
+thead {
+    background-color: rgba(255, 255, 255, 0.384);
+    text-align: center;
+
+}
+
+.inputbox {
+    background-color:tansparent;
+}
+//-sy
+
+.navi
+{font-family: "Noto Sans KR" ;
+font-weight: 300 ;
+color: gainsboro ; 
+}
+
+.navi1
+{font-family: "Noto Sans KR" ;
+font-weight: 400 ;
+font-size: 25px ; 
+color: gainsboro ; 
+}
+
+.bt {
+    font-family: "Arvo" ;
+    color: white ;
+    font-weight: 300 ;
+    opacity: 0.8 ;
+}
+
+.topnav {
+    background-color: black ;
+    opacity: 0.5 ;
+}
+
+
+.inf {
+    border-right-color: gray;
+    border-left-color: gray;
+    border-width: 0.5px;
+    border-right-style: solid;
+    border-left-style: solid;
+}
+
+
+
+.ft {
+    color: gray ;
+    font-size: 13px ;
+}
+
+
+
+body 
+
+{background-image: url("index_background.jpg");
+background-size: 100%;
+background-color: #566389;
+}
+
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+
+
+a1 {
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 80px 20%;
+  }
+
+.titlemake {
+    padding: 20px 30px;
+    width: 70%;
+}
+
+.contentmake {
+    padding: 20px 30px;
+    width: 70%;
+}
+
+.bdsize {
+    max-width: 500px;
+    width: 300px;
+    margin-top: 150px;
+    margin-left: 240px;
+
+}
+
+.formbg {
+    background-color: transparent;
+}
+.texttr {
+    opacity: 0.5;
+}
+
+.textsize {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.mt-7 {
+    margin-top: 7erm;
+}
+
+.inputsize {
+    height: 50px;
+    width: 300px;
+}
+
+.divposition {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.cc {
+    background-color: white !important;
+    opacity: 0.5;
+    color: black !important;
+    font-weight:bold;
+}
+
+.bg-tr {
+    background: rgba(163, 179, 176, 0.192);
+}
+
+.font25 {
+    font-size: 25px;
+}
+
+.font20 {
+    font-size:20px;
+}
+
+.plr-4 {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.bgradius {
+    border-radius : 3rem;
+}
+
+.bgradius2 {
+    border-radius : 1rem;
+}
+
+.btnsize {
+    font-size: 10px;
+}
+
+.mr-7 {
+    margin-right : 5rem;
+}
+
+.ml-7 {
+    margin-left: 5rem;
+}
+
+.titlesize{
+    font-size : 60px;
+}

@@ -1,0 +1,34 @@
+<br>
+<br>
+<div class="container">
+<h1>Dutch Pay</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Etc</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @post_ns.each do |post_n| %>
+      <tr>
+        <td><%= post_n.id%></td>
+        <td><%= post_n.date %></td>
+        <td><%= post_n.title %></td>
+        <td><%= post_n.etc %></td>
+        <td><a href="/post_ns/<%= post_n.id%>/check_n">명단확인</a></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '새로운 글 쓰기', new_post_n_path %>
+</div>

@@ -1,0 +1,35 @@
+
+<br>
+<br>
+<div class="container">
+<h1>Budget Plan</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>날짜</th>
+      <th>제목</th>
+      <th>총액</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr class="tabletext">
+        <td><%= post.id%></td>
+        <td><%= post.date %></td>
+        <td><%= link_to post.title, post %></td>
+        <td><%= post.tables.sum("total") %></td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '새로운 글 쓰기', new_post_path %> <br><br>
+<button class="btn bgradius2 border-white bg-transparent text-white"><a href="/posts/all">다른 사람 예산 기획 보기</a></button>
+
+
+</div>

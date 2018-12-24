@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  </head>
+
+
+   <body class="text-center text-white"> 
+      <div class="topnav sticky-top ">
+            <nav class="navbar" >
+                <!--왼쪽-->
+                <div class="container text-center">
+                    <div>
+                    
+                    <a class="navi1" href="/"><%= image_tag("dollar_icon.svg", :alt => "rss feed", :size => "40x30") %>아마겟돈</a>
+                    </div>
+                    <div>
+
+                    <a class="navi" href="/post_ns">Dutch Pay</a>
+                    &nbsp &nbsp
+                    <a class="navi" href="/posts">Budget Plan</a>
+                    &nbsp &nbsp
+                    <a class="navi" href="/freeposts">Board</a>
+                    
+
+
+                    </div>
+                    
+                <!--icon-->
+                    <div>
+                      <% if user_signed_in? %>
+                    &nbsp&nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp<%= link_to '로그아웃', destroy_user_session_path, method: :delete, class: " navi3" %>
+                    <% else %>
+                      <%= link_to '로그인', new_user_session_path, class: "navi" %>
+                      <%= link_to '회원가입', new_user_registration_path, class: "navi" %>
+                    <% end %>   
+                    </div>
+                </div>    
+            </nav>     
+        </div>
+    <div class="pb-5">
+      <%= yield %>
+    </div>
+   
+    <!--Footer-->
+    
+    <div class="navbar fixed-bottom">
+      <div class="ft container d-flex bd-highlight">
+        <div class="mr-auto p-2 bd-highlight">
+            NE<span class=text-warning>X</span>T X
+            <strong>멋쟁이사자처럼</strong>
+        </div>
+        <div class="p-2 bd-highlight">
+            © 2018 Copyright:
+            <strong>AMAGET$.com</strong>
+        </div>
+       
+      </div>
+    </div>  
+    <!--/.Copyright -->
+    <!--/.Footer-->
+                      
+  </body>
+</html>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item: MyString
+  EA: 1
+  price: 1
+  total: 1
+  etc: MyString
+  post: one
+
+two:
+  item: MyString
+  EA: 1
+  price: 1
+  total: 1
+  etc: MyString
+  post: two

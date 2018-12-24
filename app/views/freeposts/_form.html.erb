@@ -1,0 +1,41 @@
+<%= form_for(freepost) do |f| %>
+  <% if freepost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(freepost.errors.count, "error") %> prohibited this freepost from being saved:</h2>
+
+      <ul>
+      <% freepost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="content-center">
+ <div class=" field mx-auto" style="width:400px;">
+    <%= f.label :제목 %>
+    <%= f.text_field :title, class: "ff form-control" %>
+
+  </div>
+<br>
+  <div class=" field mx-auto" style="width:400px;">
+    <%= f.label :내용 %>
+
+    <%= f.text_area :content, class: "ff form-control" %>
+  </div>
+<br>
+  <div class="d-flex justify-content-md-center">
+    <button class="btn btn-info">
+      <%= link_to '뒤로', freeposts_path %>
+      </button>
+  
+    &nbsp &nbsp 
+    <div class="actions">
+      <button type="submit" class="btn btn-info">
+      제출
+      </button>   
+    </div>
+
+    
+  </div>  
+<% end %>

@@ -1,0 +1,68 @@
+
+<div class="d-flex justify-content-center">
+  <div class="h3"> 제목 </div>
+  <div class = " ">
+      <ul class="list-group">
+          <li class="cc list-group-item" style="width:800px; height:50px; padding:10px; margin:10px;">
+          <%= @freepost.title %></li>
+      </ul>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <div class="h3"> 내용 </div>
+  <div class = "  ">
+      <ul class="list-group">
+          <li class="cc list-group-item" style="width:800px; height:400px; padding:10px; margin:10px;">
+          <%= @freepost.content %></li>
+      </ul>
+  </div>
+</div>
+
+<div class = " d-flex justify-content-center">
+<table class="table" style="width:800px; padding:20px; margin:20px; margin-left:70px;">
+  <thead>
+    <tr >
+      <th scope="col">댓글번호</th>
+      <th scope="col">댓글내용</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@freepost.comments.each do |comment| %>
+      <tr>
+        <th scope="row"><%=comment.id%></th>
+        <td><%=comment.content %></td>
+        <td><%=link_to '삭제',
+          freepost_comment_path(@freepost.id, comment.id), method: 'delete'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+  <div class = "d-flex justify-content-center">
+    <%=form_for Comment.new, url:freepost_comments_path(@freepost.id) do |f|%>
+      <%=f.label "댓글" %>
+      <%=f.text_field :content, :size=>"74" %> <%=f.submit "작성" %>
+      <br>
+      <br>
+  </div>
+
+
+
+<div class = "button1">
+  <div class = "d-flex justify-content-center">
+    <%= link_to '게시물수정', edit_freepost_path(@freepost) %> 
+    &nbsp &nbsp &nbsp &nbsp &nbsp
+    <%= link_to '뒤로가기', freeposts_path %>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+

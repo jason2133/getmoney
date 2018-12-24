@@ -1,0 +1,59 @@
+<%= form_for(post_n) do |f| %>
+  <% if post_n.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post_n.errors.count, "error") %> prohibited this post_n from being saved:</h2>
+
+      <ul>
+      <% post_n.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class=content-center>
+<div class="form-group container p-5">
+  <div class="field content-center  ">
+    <%= f.label :날짜 %>
+    <br>
+    <%= f.date_select :date, class: "ff form-control text-center" %>
+  </div>
+<br>
+  <div class="field mx-auto" style="width:400px;">
+    <%= f.label :내역 %>
+    <%= f.text_field :title, class: "ff form-control  text-center", placeholder: "ex) 춘자 뒷풀이" %>
+  </div>
+  <br>
+    <div class="field mx-auto" style="width:400px;">
+      <%= f.label :총비용 %>
+      <%= f.number_field :total_price, class: "ff form-control text-center", placeholder: "156000" %>
+    </div>
+    <br>
+    <div class="field mx-auto" style="width:400px;">
+      <%= f.label :인원수 %>
+      <%= f.number_field :member, class: "ff form-control text-center", placeholder: "10" %>
+    </div>
+  <br>
+  <div class="field mx-auto" style="width:400px;">
+    <%= f.label :메모 %>
+    <%= f.text_field :etc, class: "ff form-control text-center", placeholder: "멋쟁이사자처럼 정기뒷풀이" %>
+  </div>
+  
+
+<br>
+<div class="d-flex justify-content-md-center">
+    <button class="btn btn-info">
+      <%= link_to '뒤로', post_ns_path %>
+      </button>
+    
+    &nbsp 
+    &nbsp 
+    <div class="actions">
+      <button type="submit" class="btn btn-info">
+      제출
+      </button>   
+    </div>
+    
+</div>
+</div>
+<% end %>

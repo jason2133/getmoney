@@ -1,0 +1,2 @@
+module CheckNHelper
+end

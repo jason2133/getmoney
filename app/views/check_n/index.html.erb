@@ -1,0 +1,45 @@
+
+<div>
+    <form action="/post_ns/<%= @post_n.id%>/check_n" method="post" class="my-5 ">
+        <input type="string" name="gets" class=" texttr inputsize" placeholder="ex) 신한결, 신예찬, 이수영, 이재승, 최희윤">
+        <input type="submit" value="입력" class="btn bgradius2 border-white bg-transparent text-white">
+        <p>' , ' 로 구분해서 적어주세요</p>
+    </form>
+</div>
+
+<div class="d-flex justify-content-around font20">
+    <div class="divposition pt-4 pb-5 plr-4 bg-tr d-flex flex-column ml-5 justify-content-start bgradius">
+        <p class="font25 mb-5">미 입금자</p>
+
+        <% @checks_sort.each do |x| %>
+            <% if x.moeny != 1 %>
+                <form action="/post_ns/<%= @post_n.id%>/check_n/yes/<%=x.id%>" mehtod="post" class="mb-1">
+                    <span class="font20"><%= x.name %></span> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+                    <input type="submit" value="확인" class="btn bgradius2 btnsize border-white bg-transparent text-white"> 
+                    <%= link_to 'X', post_n_check_n_path(@post_n.id,x.id), method: :delete, class: " bgradius2 btn btnsize border-white"%>
+                    
+                </form>
+                
+            <% end %>
+        <% end %>
+    </div>
+    <div class="divposition pt-4 pb-5 bg-tr plr-4 d-flex flex-column mr-5 justify-content-start bgradius">
+
+        <p class="font25 mb-5">입금자</p>
+        <% @checks.each do |x| %>
+            <% if x.moeny == 1 %>
+                <form action="/post_ns/<%= @post_n.id%>/check_n/no/<%=x.id%>" mehtod="post">
+                    <span class="font20"><%= x.name %></span> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+                    <input type="submit" value="취소" class="btn bgradius2 border-white bg-transparent text-white">
+                    <%= link_to 'X', post_n_check_n_path(@post_n.id,x.id), method: :delete, class: " bgradius2 btn border-white"%>
+                    
+                </form>
+            <% end %>
+        <% end %>
+    </div>
+</div>
+        <br>
+        <a  href="/post_ns/<%= @post_n.id%>">뒤로가기</a> &nbsp; | &nbsp;
+        <a href="/post_ns">전체 목록 보기</a>
+        <br>
+
