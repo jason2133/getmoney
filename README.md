@@ -16,8 +16,13 @@
 
 ## 사진
 ### 아마겟돈 메인페이지
+![_](https://user-images.githubusercontent.com/37537208/50454403-b1860d00-098a-11e9-9b19-771aac915b54.png)
+
 ### 아마겟돈 Dutch Pay 화면
+![_2](https://user-images.githubusercontent.com/37537208/50454405-b3e86700-098a-11e9-8ae2-f02d3d860a52.png)
+
 ### 아마겟돈 Budget Plan 화면
+![_3](https://user-images.githubusercontent.com/37537208/50454409-b6e35780-098a-11e9-9432-6ba4e879d717.png)
 
 ## 특징
 * Ruby on rails 를 이용하여 전체적인 페이지 제작 
